@@ -5,5 +5,6 @@ To avoid such issues, we make use of handlers. We can allow some tasks to notify
 This special code of block is what we refer to as handlers. The idea is we will allow the task of replacing configuration file to notify a particular handler if some change is detected. The handler that is notified then restarts the server. In case, no change occurs, the handler is never informed and the unnecessary restart of server can be avoided. 
 
 Before, executing the playbook, copy the server conf file in /root directory. 
-Run the command, to run the playbook. 
-ansible-playbook webserver.yml
+Run the following command to execute the playbook. 
+
+¼ansible-playbook webserver.yml
