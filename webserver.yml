@@ -1,0 +1,28 @@
+- name: Idempotency in Restarting httpd Server 
+  hosts: webservers
+  tasks: 
+  - name: Installing Webserver 
+    package: 
+       name: httpd
+       state: present 
+  - name: Copy a simple webpage
+    copy:
+       dest: "/var/www/html/index.html"
+       content: "Hello Webserver"
+  - name: Start the services 
+    service:
+       name: httpd
+       state: started 
+
+  - name: Write the conf file and restart if required 
+    template: 
+       src: "/root/httpd.conf.j2"
+       dest: "/etc/httpd/conf/httpd.conf"
+    notify: 
+    - Restart the Server 
+   
+  handlers: 
+   - name: Restart the Server 
+     service:
+        name: httpd
+        state: restarted 
