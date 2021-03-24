@@ -7,4 +7,6 @@ This special code of block is what we refer to as handlers. The idea is we will 
 Before, executing the playbook, copy the server conf file in /root directory. 
 Run the following command to execute the playbook. 
 
-¼ansible-playbook webserver.yml
+```
+ansible-playbook webserver.yml
+```
